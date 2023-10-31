@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    
+    int kac_tane;
+    int kac_sorgu;
+    cin >> kac_tane;
+    cin >> kac_sorgu;
+    
+    int ** diziadresi = new int*[kac_tane];
+    
+    for (int i = 0; i < kac_tane; i++){
+    
+        int boyut;
+        cin >> boyut;
+        diziadresi[i] = new int [boyut]; //important
+        
+        for (int j = 0; j < boyut; j++){
+            cin >> diziadresi[i][j]; 
+        } 
+              
+    }
+    
+    //output
+    for (int i = 0; i < kac_sorgu; i++){
+        int dizi_indeks, eleman_indeks;
+        cin >> dizi_indeks >> eleman_indeks;
+        cout << diziadresi[dizi_indeks][eleman_indeks] << endl;
+    }
+    
+    //bellek temizleme
+     for (int i = 0; i < kac_tane; i++) {
+        delete[] diziadresi[i];
+    }
+    delete[] diziadresi;
+    
+      
+    return 0;
+}
